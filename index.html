@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Rescue - Your Trusted Gold Loan Partner</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-md py-4 px-6 md:px-12 flex justify-between items-center relative z-20">
+        <div class="text-2xl font-bold text-gray-900">
+        <div class="logo"><img src="logo.webp" alt="Gold Rescue company logo"></div>
+        </div>
+        <nav class="hidden md:flex space-x-8 nav-links">
+            <a href="#home" class="text-gray-600 hover:text-yellow-600 font-semibold transition duration-300">Home</a>
+            <a href="#about" class="text-gray-600 hover:text-yellow-600 font-semibold transition duration-300">About Us</a>
+            <a href="#services" class="text-gray-600 hover:text-yellow-600 font-semibold transition duration-300">Services</a>
+            <a href="#careers" class="text-gray-600 hover:text-yellow-600 font-semibold transition duration-300">Careers</a>
+            <a href="#contact" class="text-gray-600 hover:text-yellow-600 font-semibold transition duration-300">Contact Us</a>
+        </nav>
+        <!-- Hamburger Menu Icon -->
+        <button id="hamburger" class="hamburger-menu p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+            <i class="fas fa-bars text-gray-700 text-2xl"></i>
+        </button>
+    </header>
+
+    <!-- Mobile Navigation Menu (hidden by default) -->
+    <nav id="mobile-nav-links" class="mobile-nav-links hidden md:hidden">
+        <a href="#home" class="block py-3 px-6 text-gray-800 hover:bg-gray-200 transition duration-300 border-b border-gray-200">Home</a>
+        <a href="#about" class="block py-3 px-6 text-gray-800 hover:bg-gray-200 transition duration-300 border-b border-gray-200">About Us</a>
+        <a href="#services" class="block py-3 px-6 text-gray-800 hover:bg-gray-200 transition duration-300 border-b border-gray-200">Services</a>
+        <a href="#careers" class="block py-3 px-6 text-gray-800 hover:bg-gray-200 transition duration-300 border-b border-gray-200">Careers</a>
+        <a href="#contact" class="block py-3 px-6 text-gray-800 hover:bg-gray-200 transition duration-300">Contact Us</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative w-full h-screen flex items-center justify-center text-center overflow-hidden">
+        <div class="slideshow-container absolute inset-0">
+            <!-- Placeholder images for slideshow -->
+            <img src="bg1.jpg" class="slideshow-img active" alt="Gold Loan Banner 1">
+            <img src="bg2.jpg" class="slideshow-img" alt="Gold Loan Banner 2">
+            <img src="bg3.jpg" class="slideshow-img" alt="Gold Loan Banner 3">
+            
+        
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 px-6 md:px-12 bg-white animate-fade-in">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            
+            <div class="order-2 md:order-1 text-center md:text-left animate-slide-in-left">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">About Gold Rescue</h2>
+                <p class="text-gray-700 leading-relaxed mb-8">
+                    At Gold Rescue, we are dedicated to providing accessible and reliable gold loan solutions. Our mission is to empower individuals and businesses by helping them unlock the true value of their gold assets, ensuring financial flexibility and peace of mind. We pride ourselves on a foundation of trustworthiness, transparency, and unwavering commitment to our clients' financial well-being.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Why Choose Us?</h3>
+                <ul class="text-gray-700 space-y-3 list-none p-0">
+                    <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> <strong>Fast Approval:</strong> Quick and efficient loan processing.</li>
+                    <li class="flex items-center"><i class="fas fa-percentage text-blue-500 mr-3"></i> <strong>Low Interest Rates:</strong> Competitive rates designed to be affordable.</li>
+                    <li class="flex items-center"><i class="fas fa-users text-purple-500 mr-3"></i> <strong>Trusted by Thousands:</strong> A large, satisfied customer base.</li>
+                    <li class="flex items-center"><i class="fas fa-shield-alt text-yellow-600 mr-3"></i> <strong>Secure & Transparent Process:</strong> Clear, honest, and secure transactions.</li>
+                </ul>
+            </div>
+            <div class="order-1 md:order-2 animate-fade-in animate-delay-1">
+                <!-- Placeholder image for About section -->
+                <img src="https://placehold.co/600x400/ffd700/000000?text=Why+Choose+Us" alt="Why Choose Us" class="rounded-lg shadow-xl w-full h-auto object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-16 px-6 md:px-12 bg-gray-200 animate-fade-in">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-10">How Does It Work?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 animate-slide-in-up animate-delay-1">
+                    <i class="fas fa-hand-holding-usd text-yellow-600 text-5xl mb-6"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">1. Bring Your Gold</h3>
+                    <p class="text-gray-700">Visit our branch with your gold items and necessary KYC documents for verification.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 animate-slide-in-up animate-delay-2">
+                    <i class="fas fa-balance-scale text-yellow-600 text-5xl mb-6"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">2. Expert Valuation</h3>
+                    <p class="text-gray-700">Our certified appraisers will assess your gold's purity and weight using advanced tools.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 animate-slide-in-up animate-delay-3">
+                    <i class="fas fa-handshake text-yellow-600 text-5xl mb-6"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">3. Get Loan Offer</h3>
+                    <p class="text-gray-700">Based on the accurate valuation, we'll provide an instant, competitive loan offer.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 animate-slide-in-up animate-delay-4">
+                    <i class="fas fa-money-check-alt text-yellow-600 text-5xl mb-6"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">4. Receive Funds</h3>
+                    <p class="text-gray-700">Complete minimal paperwork and receive your loan amount promptly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Services Section -->
+    <section id="services" class="py-16 px-6 md:px-12 bg-white animate-fade-in">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-10">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-50 transition-all duration-300 animate-slide-in-up animate-delay-1">
+                    <i class="fas fa-coins text-yellow-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Gold Loans</h3>
+                    <p class="text-gray-700">Get instant financial assistance by pledging your gold with minimal paperwork.</p>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-50 transition-all duration-300 animate-slide-in-up animate-delay-2">
+                    <i class="fas fa-hand-holding text-yellow-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Release Pledged Gold</h3>
+                    <p class="text-gray-700">We help you release gold pledged with other institutions, offering better terms.</p>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-50 transition-all duration-300 animate-slide-in-up animate-delay-3">
+                    <i class="fas fa-exchange-alt text-yellow-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Gold Buyback</h3>
+                    <p class="text-gray-700">Sell your gold at the best market rates with a transparent and secure process.</p>
+                </div>
+                <!-- Service Card 4 -->
+                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-50 transition-all duration-300 animate-slide-in-up animate-delay-4">
+                    <i class="fas fa-gem text-yellow-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Jewelry Valuation</h3>
+                    <p class="text-gray-700">Expert and unbiased valuation services for all types of gold and diamond jewelry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Banking Partners Section -->
+    <section class="py-16 px-6 md:px-12 bg-gray-200 animate-fade-in">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-10">Our Banking Partners</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-center partner-logos-container">
+                <!-- Placeholder images for bank logos -->
+                <img src="ICICI-Bank.jpg" alt="ICICI-Bank" class="partner-logo">
+                <img src="rbl-bank.jpg" alt="rbl-bank" class="partner-logo animate-delay-1">
+                <img src="idfc bank.jpg" alt="idfc bank" class="partner-logo animate-delay-2">
+                <img src="csb bank.jpg" alt="csb bank" class="partner-logo animate-delay-3">
+                <img src="shivalik.jpg" alt="shivalik" class="partner-logo animate-delay-4">
+            </div>
+        </div>
+    </section>
+
+    <!-- Gold Loan Calculator Section -->
+    <section id="gold-loan" class="py-16 px-6 md:px-12 bg-white animate-fade-in">
+        <div class="max-w-3xl mx-auto bg-gray-50 p-8 rounded-lg shadow-xl animate-slide-in-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">Gold Loan Calculator</h2>
+            <div class="space-y-6">
+                <div>
+                    <label for="goldWeight" class="block text-gray-700 text-sm font-semibold mb-2">Gold Weight (grams):</label>
+                    <input type="number" id="goldWeight" class="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="e.g., 10.5" min="0" step="0.1">
+                </div>
+                <div>
+                    <label for="goldPurity" class="block text-gray-700 text-sm font-semibold mb-2">Gold Purity (karats):</label>
+                    <select id="goldPurity" class="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        <option value="24">24 Karat</option>
+                        <option value="22">22 Karat</option>
+                        <option value="18">18 Karat</option>
+                        <option value="14">14 Karat</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="loanTenure" class="block text-gray-700 text-sm font-semibold mb-2">Loan Tenure (months):</label>
+                    <input type="number" id="loanTenure" class="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="e.g., 12" min="1">
+                </div>
+                <button id="calculateLoan" class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 w-full">
+                    Calculate Loan
+                </button>
+
+                <div id="calculatorResult" class="mt-8 p-6 bg-yellow-50 rounded-lg border border-yellow-200 hidden">
+                    <h3 class="text-xl font-semibold text-yellow-800 mb-3">Calculation Results:</h3>
+                    <p class="text-gray-800 mb-2">Estimated Gold Value: <span id="displayGoldValue" class="font-bold"></span></p>
+                    <p class="text-gray-800 mb-2">Maximum Loan Amount: <span id="displayLoanAmount" class="font-bold"></span></p>
+                    <p class="text-gray-800">Monthly EMI (Approx): <span id="displayEMI" class="font-bold"></span></p>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-16 px-6 md:px-12 bg-gray-200 animate-fade-in">
+        <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-xl animate-slide-in-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">Get in Touch</h2>
+            <p class="text-center text-gray-700 mb-8">
+                Have questions or ready to apply? Fill out the form below and we'll get back to you shortly!
+            </p>
+            <form class="space-y-6">
+                <div class="relative group">
+                    <input type="text" id="contact-name" class="contact-input" placeholder=" " required>
+                    <label for="contact-name" class="contact-label">Name</label>
+                </div>
+                <div class="relative group">
+                    <input type="tel" id="contact-phone" class="contact-input" placeholder=" " required>
+                    <label for="contact-phone" class="contact-label">Phone</label>
+                </div>
+                <div class="relative group">
+                    <input type="email" id="contact-email" class="contact-input" placeholder=" " required>
+                    <label for="contact-email" class="contact-label">Email</label>
+                </div>
+                <div class="relative group">
+                    <textarea id="contact-message" rows="5" class="contact-input resize-y" placeholder=" "></textarea>
+                    <label for="contact-message" class="contact-label">Message (Optional)</label>
+                </div>
+                <button type="submit" class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 w-full">
+                    Submit Inquiry
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="py-16 px-6 md:px-12 bg-white animate-fade-in">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-10">What Our Customers Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review Card 1 -->
+                <div class="review-card bg-gray-50 p-6 rounded-lg shadow-md animate-slide-in-up animate-delay-1">
+                    <div class="text-yellow-500 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">"The gold loan process was incredibly smooth and fast. Highly recommended for quick financial needs!"</p>
+                    <p class="font-semibold text-gray-800">- Pooja S.</p>
+                </div>
+                <!-- Review Card 2 -->
+                <div class="review-card bg-gray-50 p-6 rounded-lg shadow-md animate-slide-in-up animate-delay-2">
+                    <div class="text-yellow-500 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">"Transparent process and excellent customer support. They made me feel very comfortable throughout."</p>
+                    <p class="font-semibold text-gray-800">- Rakesh M.</p>
+                </div>
+                <!-- Review Card 3 -->
+                <div class="review-card bg-gray-50 p-6 rounded-lg shadow-md animate-slide-in-up animate-delay-3">
+                    <div class="text-yellow-500 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">"Got a great valuation for my gold and the loan amount was disbursed within hours. Very efficient!"</p>
+                    <p class="font-semibold text-gray-800">- Sneha K.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers Section -->
+    <section id="careers" class="py-16 px-6 md:px-12 bg-gray-100 animate-fade-in">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">Join Our Team</h2>
+            <p class="text-gray-700 leading-relaxed mb-8 text-center">
+                At Gold Rescue, we're building a team of passionate professionals dedicated to financial innovation and customer service. If you're looking to make an impact in the finance industry, we invite you to explore career opportunities with us.
+            </p>
+
+            <!-- Grid container for Internship and Work With Us sections -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-md text-center animate-slide-in-up">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Internship Programs</h3>
+                    <p class="text-gray-700 mb-6">
+                       We offer internships for students or recent graduates who are eager to learn about the gold loan industry and gain hands-on experience in financial services, sales, and marketing. Follow the link to submit your interest.
+                    </p>
+                    <button id="openInternshipFormBtn" class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 w-full sm:w-auto">
+                        Apply for Internship
+                    </button>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-md text-center animate-slide-in-up animate-delay-1">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Work With Us</h3>
+                    <p class="text-gray-700 mb-6">
+                        Interested in joining our team? Send us your resume and let us know how you can contribute to Gold Rescue's success.
+                    </p>
+                    <a href="mailto:info@goldrescue.in" class="inline-block bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 w-full sm:w-auto">
+                        Send Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-10 px-6 md:px-12 text-center rounded-t-lg">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-left md:text-center">
+                <h3 class="text-xl font-semibold mb-4 text-yellow-500">Gold Rescue</h3>
+                <p class="text-gray-400 mb-2">
+                    Office No.1011, Solus Building,<br>Hiranandani Estate, Off Ghodbunder Road,<br>Patlipada - Thane (West) 400607 
+                
+                </p>
+                <p class="text-gray-400 mb-2">
+                 +91 22 31948448 / +91-988 988 7991
+                </p>
+            </div>
+             <div class="text-left md:text-center">
+                <h3 class="text-xl font-semibold mb-4 text-yellow-500">Connect  Us</h3>
+    <a href="https://wa.me/919889887991"  target="_blank" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp text-gray-400 hover:text-yellow-400 transition duration-300"></i>
+    </a>
+    <a href="https://www.instagram.com/goldrescuethane/" target="_blank" aria-label="Instagram">
+      <i class="fab fa-instagram text-gray-400 hover:text-yellow-400 transition duration-300"></i>
+    </a>
+    <a href="https://www.facebook.com/people/Gold-Rescue/61565839332783/" target="_blank" aria-label="Facebook">
+      <i class="fab fa-facebook-f text-gray-400 hover:text-yellow-400 transition duration-300"></i>
+    </a>
+    <p  class="text-gray-400 mb-2"> Connect Instantly With Gold Rescue</p>
+  </div>
+            <div class="text-left md:text-center">
+                <h3 class="text-xl font-semibold mb-4 text-yellow-500">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#home" class="text-gray-400 hover:text-yellow-400 transition duration-300">Home</a></li>
+                    <li><a href="#careers" class="text-gray-400 hover:text-yellow-400 transition duration-300">Careers</a></li>
+                    <li><a href="#services" class="text-gray-400 hover:text-yellow-400 transition duration-300">Services</a></li>
+                    <li><a href="#contact" class="text-gray-400 hover:text-yellow-400 transition duration-300">Contact Us</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition duration-300">Terms & Conditions</a></li>
+                </ul>
+            </div>
+</div>
+            <div class="text-left md:text-center">
+                <h3 class="text-xl font-semibold mb-4 text-yellow-500">Legal</h3>
+                <p class="text-gray-400 mb-4">&copy; 2025 Gold Rescue. All rights reserved.</p>
+                <p class="text-gray-500 text-sm">
+                    GoldRescue does not purchase stolen or damaged gold. Selling stolen or counterfeit gold is a criminal act, and if detected, both the individual and the items will be reported to the authorities. Additionally, individuals under the age of 21 can only sell gold with a written consent letter from a parent or guardian.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Internship Form Modal -->
+    <div id="internshipFormModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-[100] opacity-0 pointer-events-none transition-all duration-300 ease-in-out">
+        <div id="internshipFormModalContent" class="bg-white rounded-lg shadow-xl w-full max-w-xl md:max-w-2xl lg:max-w-3xl transform scale-95 transition-all duration-300 ease-in-out flex flex-col" style="height: 85vh; max-height: 700px;">
+            <div class="flex justify-between items-center p-3 sm:p-4 border-b sticky top-0 bg-white z-10">
+                <h3 class="text-lg font-semibold text-gray-800">Internship Application</h3>
+                <button id="closeInternshipFormModal" class="text-gray-600 hover:text-gray-900 text-2xl leading-none focus:outline-none">
+                    &times;
+                </button>
+            </div>
+            <div class="flex-grow overflow-y-auto">
+                <iframe id="internshipFormIframe"
+                        src=""
+                        width="100%"
+                        height="100%"
+                        frameborder="0"
+                        marginheight="0"
+                        marginwidth="0"
+                        allowfullscreen>Loading…</iframe>
+            </div>
+            <p class="text-xs text-gray-500 p-2 text-center border-t bg-white">
+                If the form doesn't load or display correctly, you can
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXsrYlHuDJ_vmLSkKlUnudXIcH9ReWx-M13dtCdZ6whvxAzA/viewform" target="_blank" rel="noopener noreferrer" class="text-yellow-600 hover:underline">open it directly here</a>.
+            </p>
+        </div>
+    </div>
+
+    <!-- Link to custom JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

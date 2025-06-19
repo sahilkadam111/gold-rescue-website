@@ -1,0 +1,184 @@
+/* Import Google Fonts for 'Inter' */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+header .logo {
+    /* float: left; Removed, handled by flex */
+    /* font-size, font-weight, color are not needed if it's just an image */
+}
+header .logo img {
+    max-height: 80px; /* Adjust as needed */
+    width: auto;}
+
+/* Animations */
+/* General Fade-In */
+.animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+.cta-button {
+  display: inline-block;
+  margin-top: 30px; /* Moves the button down */
+  padding: 15px 30px; /* Makes button bigger */
+  font-size: 18px; /* Slightly larger text */
+  background-color: #f4a300; /* Or your preferred color */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #d48800; /* Darker on hover */
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide-In Up */
+.animate-slide-in-up {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideInUp 0.8s ease-out forwards;
+}
+
+@keyframes slideInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide-In Left */
+.animate-slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInLeft 0.8s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* Animation delays */
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
+.animate-delay-4 { animation-delay: 0.4s; }
+
+
+/* Hero Section Slideshow */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slideshow-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0; /* Start hidden */
+    transition: opacity 1.5s ease-in-out; /* Smooth transition */
+}
+
+.slideshow-img.active {
+    opacity: 1; /* Active image is visible */
+}
+
+/* Service Card Hover Effect */
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Tailwind shadow-xl */
+}
+
+/* Contact Form Floating Labels */
+.contact-input {
+    @apply p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-yellow-500 peer; /* Peer for sibling selector */
+}
+
+.contact-label {
+    @apply absolute left-3 top-3 text-gray-600 transition-all duration-200 ease-in-out cursor-text;
+}
+
+.contact-input:focus + .contact-label,
+.contact-input:not(:placeholder-shown) + .contact-label {
+    @apply -top-2 left-2 text-xs text-yellow-600 bg-white px-1;
+}
+
+/* Hamburger menu styles */
+.hamburger-menu {
+    display: none; /* Hidden by default on larger screens */
+}
+
+.mobile-nav-links {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    width: 100%;
+    background-color: #f9fafb; /* Light gray background for mobile menu */
+    position: absolute;
+    top: 72px; /* Below the header */
+    left: 0;
+    border-top: 1px solid #e5e7eb;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%); /* Start off-screen above */
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Smooth slide transition */
+    opacity: 0;
+}
+
+.mobile-nav-links.open {
+    display: flex; /* Show when 'open' class is present */
+    transform: translateY(0); /* Slide into view */
+    opacity: 1;
+}
+.connect-us {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.connect-us h3 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
+  color: #ffffff;
+  font-size: 24px;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #ffd700; /* gold color */
+}
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block; /* Show hamburger on mobile */
+    }
+    .nav-links {
+        display: none; /* Hide traditional nav links on mobile */
+    }
+}
