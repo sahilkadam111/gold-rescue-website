@@ -6,10 +6,7 @@ body {
     overflow-x: hidden; /* Prevent horizontal scroll due to animations */
     scroll-behavior: smooth; /* Smooth scrolling for anchor links */
 }
-header .logo {
-    /* float: left; Removed, handled by flex */
-    /* font-size, font-weight, color are not needed if it's just an image */
-}
+/* Removed empty ruleset for header .logo */
 header .logo img {
     max-height: 80px; /* Adjust as needed */
     width: auto;}
@@ -109,16 +106,36 @@ header .logo img {
 
 /* Contact Form Floating Labels */
 .contact-input {
-    @apply p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-yellow-500 peer; /* Peer for sibling selector */
+    padding: 0.75rem;
+    border: 1px solid #d1d5db; /* gray-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    width: 100%;
+    outline: none;
+    transition: box-shadow 0.2s;
+}
+
+.contact-input:focus {
+    box-shadow: 0 0 0 2px #f4a300; /* yellow-500 ring effect */
 }
 
 .contact-label {
-    @apply absolute left-3 top-3 text-gray-600 transition-all duration-200 ease-in-out cursor-text;
+    position: absolute;
+    left: 0.75rem; /* left-3 */
+    top: 0.75rem;  /* top-3 */
+    color: #4b5563; /* text-gray-600 */
+    transition: all 0.2s ease-in-out;
+    cursor: text;
 }
 
 .contact-input:focus + .contact-label,
 .contact-input:not(:placeholder-shown) + .contact-label {
-    @apply -top-2 left-2 text-xs text-yellow-600 bg-white px-1;
+    top: -0.5rem; /* -top-2 */
+    left: 0.5rem; /* left-2 */
+    font-size: 0.75rem; /* text-xs */
+    color: #ca8a04; /* text-yellow-600 */
+    background-color: #fff; /* bg-white */
+    padding-left: 0.25rem; /* px-1 */
+    padding-right: 0.25rem; /* px-1 */
 }
 
 /* Hamburger menu styles */
