@@ -47,7 +47,7 @@
             <img src="bg1.jpg" class="slideshow-img active" alt="Gold Loan Banner 1">
             <img src="bg2.jpg" class="slideshow-img" alt="Gold Loan Banner 2">
             <img src="bg3.jpg" class="slideshow-img" alt="Gold Loan Banner 3">
-            
+     
         
     </section>
 
@@ -71,7 +71,7 @@
             </div>
             <div class="order-1 md:order-2 animate-fade-in animate-delay-1">
                 <!-- Placeholder image for About section -->
-                <img src="https://placehold.co/600x400/ffd700/000000?text=Why+Choose+Us" alt="Why Choose Us" class="rounded-lg shadow-xl w-full h-auto object-cover">
+                <img src="img why.jpg" alt="Why Choose Us" class="rounded-lg shadow-xl w-full h-auto object-cover">
             </div>
         </div>
     </section>
@@ -111,25 +111,25 @@
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-10">Our Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Service Card 1 -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-50 transition-all duration-300 animate-slide-in-up animate-delay-1">
+                <div id="openGoldLoanModalBtn" class="service-card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-50 transition-all duration-300 animate-slide-in-up animate-delay-1 cursor-pointer">
                     <i class="fas fa-coins text-yellow-600 text-4xl mb-4"></i>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">Gold Loans</h3>
                     <p class="text-gray-700">Get instant financial assistance by pledging your gold with minimal paperwork.</p>
                 </div>
                 <!-- Service Card 2 -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-50 transition-all duration-300 animate-slide-in-up animate-delay-2">
+                <div id="openReleasePledgeModalBtn" class="service-card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-50 transition-all duration-300 animate-slide-in-up animate-delay-2 cursor-pointer">
                     <i class="fas fa-hand-holding text-yellow-600 text-4xl mb-4"></i>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">Release Pledged Gold</h3>
                     <p class="text-gray-700">We help you release gold pledged with other institutions, offering better terms.</p>
                 </div>
                 <!-- Service Card 3 -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-50 transition-all duration-300 animate-slide-in-up animate-delay-3">
+                <div id="openGoldBuybackModalBtn" class="service-card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-50 transition-all duration-300 animate-slide-in-up animate-delay-3 cursor-pointer">
                     <i class="fas fa-exchange-alt text-yellow-600 text-4xl mb-4"></i>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">Gold Buyback</h3>
                     <p class="text-gray-700">Sell your gold at the best market rates with a transparent and secure process.</p>
                 </div>
                 <!-- Service Card 4 -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-50 transition-all duration-300 animate-slide-in-up animate-delay-4">
+                <div id="openValuationModalBtn" class="service-card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl hover:bg-yellow-50 transition-all duration-300 animate-slide-in-up animate-delay-4 cursor-pointer">
                     <i class="fas fa-gem text-yellow-600 text-4xl mb-4"></i>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">Jewelry Valuation</h3>
                     <p class="text-gray-700">Expert and unbiased valuation services for all types of gold and diamond jewelry.</p>
@@ -155,7 +155,7 @@
 
     <!-- Gold Loan Calculator Section -->
     <section id="gold-loan" class="py-16 px-6 md:px-12 bg-white animate-fade-in">
-        <div class="max-w-3xl mx-auto bg-gray-50 p-8 rounded-lg shadow-xl animate-slide-in-up">
+        <div class="max-w-3xl mx-auto bg-gray-50 p-6 md:p-8 rounded-lg shadow-xl animate-slide-in-up">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">Gold Loan Calculator</h2>
             <div class="space-y-6">
                 <div>
@@ -192,32 +192,72 @@
 
     <!-- Contact Form Section -->
     <section id="contact" class="py-16 px-6 md:px-12 bg-gray-200 animate-fade-in">
-        <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-xl animate-slide-in-up">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">Get in Touch</h2>
-            <p class="text-center text-gray-700 mb-8">
-                Have questions or ready to apply? Fill out the form below and we'll get back to you shortly!
-            </p>
-            <form class="space-y-6">
-                <div class="relative group">
-                    <input type="text" id="contact-name" class="contact-input" placeholder=" " required>
-                    <label for="contact-name" class="contact-label">Name</label>
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-10 text-center">Get in Touch</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                
+                <!-- Left Column: Form & Address -->
+                <div class="bg-white p-8 rounded-lg shadow-xl animate-slide-in-up h-full flex flex-col">
+                    <p class="text-center text-gray-700 mb-8">
+                        Have questions or ready to apply? Fill out the form below and we'll get back to you shortly!
+                    </p>
+                    <form class="space-y-6 flex-grow">
+                        <div class="relative group">
+                            <input type="text" id="contact-name" name="contact-name" class="contact-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500" placeholder=" " required autocomplete="name">
+                            <label for="contact-name" class="contact-label">Name</label>
+                        </div>
+                        <div class="relative group">
+                            <input type="tel" id="contact-phone" name="contact-phone" class="contact-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500" placeholder=" " required autocomplete="tel">
+                            <label for="contact-phone" class="contact-label">Phone</label>
+                        </div>
+                        <div class="relative group">
+                            <input type="email" id="contact-email" name="contact-email" class="contact-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500" placeholder=" " required autocomplete="email">
+                            <label for="contact-email" class="contact-label">Email</label>
+                        </div>
+                        <div class="relative group">
+                            <textarea id="contact-message" name="contact-message" rows="5" class="contact-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 resize-y" placeholder=" " autocomplete="off"></textarea>
+                            <label for="contact-message" class="contact-label">Message (Optional)</label>
+                        </div>
+                        <button type="submit" class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 w-full">
+                            Submit Enquiry
+                        </button>
+                        
+                        <!-- Separator and WhatsApp Button -->
+                        <div class="space-y-4 pt-2">
+                            <div class="relative flex items-center">
+                                <div class="flex-grow border-t border-gray-300"></div>
+                                <span class="flex-shrink mx-4 text-gray-500 text-sm">OR</span>
+                                <div class="flex-grow border-t border-gray-300"></div>
+                            </div>
+                            <a href="https://wa.me/919889887991" target="_blank" rel="noopener noreferrer" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 w-full flex items-center justify-center">
+                                <i class="fab fa-whatsapp mr-3 text-xl"></i>
+                                Connect on WhatsApp
+                            </a>
+                        </div>
+                    </form>
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Our Location</h3>
+                        <address class="text-gray-600 leading-relaxed not-italic">                            
+                            Office No.1011, Solus Building,<br>
+                            Hiranandani Estate, Off Ghodbunder Road,<br>
+                            Patlipada - Thane (West),<br>
+                            Thane, Maharashtra 400607, India
+                        </address>
+                    </div>
                 </div>
-                <div class="relative group">
-                    <input type="tel" id="contact-phone" class="contact-input" placeholder=" " required>
-                    <label for="contact-phone" class="contact-label">Phone</label>
+
+                <!-- Right Column: Map -->
+                <div class="h-full w-full min-h-[500px] lg:min-h-full animate-fade-in animate-delay-1">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.038312015875!2d72.9730210752084!3d19.19351098203581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b99b335f633f%3A0x3b655f4945a87a58!2sSolus%2C%20Hiranandani%20Estate%2C%20Thane%20West%2C%20Thane%2C%20Maharashtra%20400607!5e0!3m2!1sen!2sin!4v1716982135455!5m2!1sen!2sin" 
+                        class="w-full h-full rounded-lg shadow-xl"
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
-                <div class="relative group">
-                    <input type="email" id="contact-email" class="contact-input" placeholder=" " required>
-                    <label for="contact-email" class="contact-label">Email</label>
-                </div>
-                <div class="relative group">
-                    <textarea id="contact-message" rows="5" class="contact-input resize-y" placeholder=" "></textarea>
-                    <label for="contact-message" class="contact-label">Message (Optional)</label>
-                </div>
-                <button type="submit" class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 w-full">
-                    Submit Inquiry
-                </button>
-            </form>
+            </div>
         </div>
     </section>
 
@@ -298,7 +338,7 @@
                 </p>
                 <p class="text-gray-400 mb-2">
                  +91 22 31948448 / +91-988 988 7991
-                </p>
+                </p>                
             </div>
              <div class="text-left md:text-center">
                 <h3 class="text-xl font-semibold mb-4 text-yellow-500">Connect  Us</h3>
@@ -359,6 +399,128 @@
             </p>
         </div>
     </div>
+
+    <!-- Release Pledge Gold Modal -->
+    <div id="releasePledgeModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-[100] opacity-0 pointer-events-none transition-all duration-300 ease-in-out">
+        <div id="releasePledgeModalContent" class="bg-white rounded-lg shadow-xl w-full max-w-2xl transform scale-95 transition-all duration-300 ease-in-out flex flex-col max-h-[85vh]">
+            <div class="flex justify-between items-center p-4 border-b sticky top-0 bg-white z-10">
+                <h3 class="text-lg font-semibold text-gray-800">Release Pledged Gold Service</h3>
+                <button id="closeReleasePledgeModal" class="text-gray-600 hover:text-gray-900 text-2xl leading-none focus:outline-none">
+                    &times;
+                </button>
+            </div>
+            <div class="p-6 space-y-4 text-gray-700 overflow-y-auto">
+                <h4 class="text-xl font-bold text-gray-900">How do we help releasing your pledged Gold?</h4>
+                <p>
+                    GoldRescue offers a convenient service to help you pre-close your pledged gold loan by providing the required cash. Our team will accompany you to the location, pay the necessary amount to release the pledged gold, and bring it to our office for further evaluation.
+                </p>
+                <p>
+                    Once the gold is released, we will verify its purity at our office. After confirming the gold's quality, GoldRescue will buy back the jewellery and pay you the remaining balance after deducting the amount used to release the pledged gold.
+                </p>
+                <p>
+                    This service is available for releasing pledged gold from banks, financiers, and pawn brokers. The advantage of releasing your pledged gold and selling it to GoldRescue is that it allows you to access enough cash before interest rates increase. Customers can visit any of our listed branches to take advantage of this service.
+                </p>
+            </div>
+            <div class="p-4 border-t bg-gray-50 text-right">
+                 <a href="#contact" id="contactFromReleaseModal" class="inline-block bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-5 rounded-lg shadow-md transition duration-300">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gold Buyback Modal -->
+    <div id="goldBuybackModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-[100] opacity-0 pointer-events-none transition-all duration-300 ease-in-out">
+        <div id="goldBuybackModalContent" class="bg-white rounded-lg shadow-xl w-full max-w-2xl transform scale-95 transition-all duration-300 ease-in-out flex flex-col max-h-[85vh]">
+            <div class="flex justify-between items-center p-4 border-b sticky top-0 bg-white z-10">
+                <h3 class="text-lg font-semibold text-gray-800">Gold Buyback Service</h3>
+                <button id="closeGoldBuybackModal" class="text-gray-600 hover:text-gray-900 text-2xl leading-none focus:outline-none">
+                    &times;
+                </button>
+            </div>
+            <div class="p-6 space-y-4 text-gray-700 overflow-y-auto">
+                <h4 class="text-xl font-bold text-gray-900">Sell Your Gold with Confidence</h4>
+                <p>
+                    Sell your gold at the best market rates with a transparent and secure process. We ensure you get the true value for your assets quickly and efficiently.
+                </p>
+                <div class="mt-6 p-6 bg-yellow-50 border-l-4 border-yellow-500 rounded-r-lg">
+                    <h5 class="text-xl font-bold text-gray-900 mb-3">Best Rate Guaranteed</h5>
+                    <p class="mb-4">
+                        We are committed to offering you the most competitive rates for your gold. Our transparent valuation process ensures you receive the maximum value. If you find a better offer, we promise to review it and provide the best possible terms. Your financial advantage is our priority.
+                    </p>
+                    <a href="tel:+919889887991" class="inline-block bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 active:scale-95">
+                        <i class="fas fa-phone-alt mr-2"></i>
+                        Call Us Now: +91-988 988 7991
+                    </a>
+                </div>
+            </div>
+            <div class="p-4 border-t bg-gray-50 text-right">
+                 <a href="#contact" id="contactFromBuybackModal" class="inline-block bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-5 rounded-lg shadow-md transition duration-300">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gold Loan Modal -->
+    <div id="goldLoanModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-[100] opacity-0 pointer-events-none transition-all duration-300 ease-in-out">
+        <div id="goldLoanModalContent" class="bg-white rounded-lg shadow-xl w-full max-w-2xl transform scale-95 transition-all duration-300 ease-in-out flex flex-col max-h-[85vh]">
+            <div class="flex justify-between items-center p-4 border-b sticky top-0 bg-white z-10">
+                <h3 class="text-lg font-semibold text-gray-800">Gold Loan Service</h3>
+                <button id="closeGoldLoanModal" class="text-gray-600 hover:text-gray-900 text-2xl leading-none focus:outline-none">
+                    &times;
+                </button>
+            </div>
+            <div class="p-6 space-y-4 text-gray-700 overflow-y-auto">
+                <h4 class="text-xl font-bold text-gray-900">Instant Gold Loans</h4>
+                <p>
+                    Unlock the value of your gold with our quick and hassle-free loan process. We provide immediate financial assistance with minimal paperwork, ensuring you get the funds you need, when you need them.
+                </p>
+                <ul class="list-disc list-inside space-y-2 pl-2">
+                    <li><strong>Competitive Interest Rates:</strong> Enjoy some of the best rates in the market.</li>
+                    <li><strong>Flexible Repayment:</strong> Choose a repayment plan that suits your financial situation.</li>
+                    <li><strong>100% Security:</strong> Your valuable assets are stored securely in our state-of-the-art vaults.</li>
+                    <li><strong>Transparent Process:</strong> No hidden charges. We believe in complete transparency with our customers.</li>
+                </ul>
+            </div>
+            <div class="p-4 border-t bg-gray-50 text-right">
+                 <a href="#contact" id="contactFromLoanModal" class="inline-block bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-5 rounded-lg shadow-md transition duration-300">
+                    Enquire Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jewelry Valuation Modal -->
+    <div id="valuationModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-[100] opacity-0 pointer-events-none transition-all duration-300 ease-in-out">
+        <div id="valuationModalContent" class="bg-white rounded-lg shadow-xl w-full max-w-2xl transform scale-95 transition-all duration-300 ease-in-out flex flex-col max-h-[85vh]">
+            <div class="flex justify-between items-center p-4 border-b sticky top-0 bg-white z-10">
+                <h3 class="text-lg font-semibold text-gray-800">Jewelry Valuation Service</h3>
+                <button id="closeValuationModal" class="text-gray-600 hover:text-gray-900 text-2xl leading-none focus:outline-none">
+                    &times;
+                </button>
+            </div>
+            <div class="p-6 space-y-4 text-gray-700 overflow-y-auto">
+                <h4 class="text-xl font-bold text-gray-900">Expert & Unbiased Valuation</h4>
+                <p>
+                    Understand the true worth of your precious jewelry with our professional valuation services. Our certified experts use non-invasive, advanced technology to assess your gold and diamond items accurately.
+                </p>
+                <p>
+                    Whether for insurance purposes, personal knowledge, or considering a sale, our detailed valuation report provides you with the clarity and confidence you need. The process is completely transparent and conducted right in front of you.
+                </p>
+            </div>
+            <div class="p-4 border-t bg-gray-50 text-right">
+                 <a href="#contact" id="contactFromValuationModal" class="inline-block bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-5 rounded-lg shadow-md transition duration-300">
+                    Get a Valuation
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" title="Go to top" class="fixed bottom-5 right-5 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-opacity duration-300 opacity-0 pointer-events-none z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Link to custom JavaScript file -->
     <script src="script.js"></script>

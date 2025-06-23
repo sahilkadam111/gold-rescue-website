@@ -1,5 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Smooth scrolling for navigation links
+    // Cache frequently accessed DOM elements
+    const mobileNav = document.getElementById('mobile-nav-links');
+    const hamburgerButton = document.getElementById('hamburger');
+    const slideshowImages = document.querySelectorAll('.slideshow-img');
+    
+    const calculateLoanButton = document.getElementById('calculateLoan');
+    const goldWeightInput = document.getElementById('goldWeight');
+    const goldPurityInput = document.getElementById('goldPurity');
+    const loanTenureInput = document.getElementById('loanTenure');
+    const calculatorResult = document.getElementById('calculatorResult');
+    const displayGoldValue = document.getElementById('displayGoldValue');
+    const displayLoanAmount = document.getElementById('displayLoanAmount');
+    const displayEMI = document.getElementById('displayEMI');
+
+    // Smooth scrolling for navigation links (delegating to a common ancestor might be more performant for many links, but this is fine for a few)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -13,8 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            // Close mobile menu after clicking a link
-            const mobileNav = document.getElementById('mobile-nav-links');
+            // Close mobile menu after clicking a link (using cached mobileNav)
             if (mobileNav && mobileNav.classList.contains('open')) {
                 mobileNav.classList.remove('open');
             }
@@ -22,12 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Hamburger menu functionality
-    const hamburgerButton = document.getElementById('hamburger');
-    const mobileNavLinks = document.getElementById('mobile-nav-links');
-
-    if (hamburgerButton && mobileNavLinks) {
+    if (hamburgerButton && mobileNav) { // mobileNav is already cached as mobileNavLinks
         hamburgerButton.addEventListener('click', () => {
-            mobileNavLinks.classList.toggle('open');
+            mobileNav.classList.toggle('open');
             // Toggle aria-expanded for accessibility
             const isExpanded = hamburgerButton.getAttribute('aria-expanded') === 'true' || false;
             hamburgerButton.setAttribute('aria-expanded', !isExpanded);
@@ -35,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Hero Section Slideshow
-    const slideshowImages = document.querySelectorAll('.slideshow-img');
     let currentSlide = 0;
 
     function showSlide(index) {
@@ -58,22 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Gold Loan Calculator Logic
-    const calculateLoanButton = document.getElementById('calculateLoan');
     if (calculateLoanButton) {
         calculateLoanButton.addEventListener('click', () => {
-            const goldWeightInput = document.getElementById('goldWeight');
-            const goldPurityInput = document.getElementById('goldPurity');
-            const loanTenureInput = document.getElementById('loanTenure');
-
             // Safely get values, defaulting to 0 if input elements are not found or values are empty/invalid
             const goldWeight = parseFloat(goldWeightInput ? goldWeightInput.value : '0');
             const goldPurity = parseFloat(goldPurityInput ? goldPurityInput.value : '0');
             const loanTenure = parseInt(loanTenureInput ? loanTenureInput.value : '0');
-
-            const calculatorResult = document.getElementById('calculatorResult');
-            const displayGoldValue = document.getElementById('displayGoldValue');
-            const displayLoanAmount = document.getElementById('displayLoanAmount');
-            const displayEMI = document.getElementById('displayEMI');
 
             // Basic validation for positive numbers
             if (goldWeight <= 0 || goldPurity <= 0 || loanTenure <= 0 || isNaN(goldWeight) || isNaN(goldPurity) || isNaN(loanTenure)) {
@@ -228,14 +227,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Basic form submission handling (for demonstration)
     const contactForm = document.querySelector('#contact form');
+    const contactNameInput = document.getElementById('contact-name');
+    const contactPhoneInput = document.getElementById('contact-phone');
+    const contactEmailInput = document.getElementById('contact-email');
+
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             // You can add form validation here before showing the message box
-            const name = document.getElementById('contact-name').value;
-            const phone = document.getElementById('contact-phone').value;
-            const email = document.getElementById('contact-email').value;
-
+            const name = contactNameInput ? contactNameInput.value : '';
+            const phone = contactPhoneInput ? contactPhoneInput.value : '';
+            const email = contactEmailInput ? contactEmailInput.value : '';
             if (!name || !phone || !email) {
                 showMessageBox('Please fill in all required fields (Name, Phone, Email).');
                 return;
@@ -256,29 +258,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (openInternshipFormBtn && internshipFormModal && internshipFormModalContent && closeInternshipFormModalBtn && internshipFormIframe) {
         openInternshipFormBtn.addEventListener('click', () => {
-            if (internshipFormIframe.getAttribute('src') !== googleFormUrl) {
-                internshipFormIframe.setAttribute('src', googleFormUrl);
-            }
             internshipFormModal.classList.remove('opacity-0', 'pointer-events-none');
             internshipFormModalContent.classList.remove('scale-95');
+            
             // Forcing reflow for transition to apply correctly on first open
             void internshipFormModal.offsetWidth; 
+            
             internshipFormModal.classList.add('opacity-100', 'pointer-events-auto');
             internshipFormModalContent.classList.add('scale-100');
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+            // Defer setting the iframe src until after the modal's opening animation has started
+            requestAnimationFrame(() => {
+                if (internshipFormIframe.getAttribute('src') !== googleFormUrl) {
+                    internshipFormIframe.setAttribute('src', googleFormUrl);
+                }
+            });
         });
 
         function closeModal() {
             internshipFormModal.classList.add('opacity-0');
             internshipFormModalContent.classList.add('scale-95');
-            internshipFormModal.classList.remove('opacity-100');
+            internshipFormModal.classList.remove('opacity-100', 'pointer-events-auto'); // Explicitly remove pointer-events-auto
             internshipFormModalContent.classList.remove('scale-100');
             
             // Delay making it non-interactive and clearing src to allow fade-out animation
             setTimeout(() => {
                 internshipFormModal.classList.add('pointer-events-none');
-                // internshipFormIframe.setAttribute('src', ''); // Optional: Clear src to stop form activity/sound if needed
-            }, 300); // Match transition duration (300ms)
+                internshipFormIframe.setAttribute('src', 'about:blank'); // Clear src to stop form activity and free resources
+            }, 300); // Match CSS transition duration (300ms)
             document.body.style.overflow = ''; // Restore background scrolling
         }
 
@@ -293,6 +301,214 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && internshipFormModal.classList.contains('opacity-100')) {
                 closeModal();
+            }
+        });
+    }
+
+    // Release Pledge Gold Modal Logic
+    const openReleasePledgeModalBtn = document.getElementById('openReleasePledgeModalBtn');
+    const releasePledgeModal = document.getElementById('releasePledgeModal');
+    const releasePledgeModalContent = document.getElementById('releasePledgeModalContent');
+    const closeReleasePledgeModalBtn = document.getElementById('closeReleasePledgeModal');
+    const contactFromReleaseModal = document.getElementById('contactFromReleaseModal');
+
+    if (openReleasePledgeModalBtn && releasePledgeModal && releasePledgeModalContent && closeReleasePledgeModalBtn) {
+    
+        function openPledgeModal() {
+            releasePledgeModal.classList.remove('opacity-0', 'pointer-events-none');
+            releasePledgeModalContent.classList.remove('scale-95');
+            
+            void releasePledgeModal.offsetWidth; 
+            
+            releasePledgeModal.classList.add('opacity-100', 'pointer-events-auto');
+            releasePledgeModalContent.classList.add('scale-100');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePledgeModal() {
+            releasePledgeModal.classList.add('opacity-0');
+            releasePledgeModalContent.classList.add('scale-95');
+            releasePledgeModal.classList.remove('opacity-100', 'pointer-events-auto');
+            releasePledgeModalContent.classList.remove('scale-100');
+            
+            setTimeout(() => {
+                releasePledgeModal.classList.add('pointer-events-none');
+            }, 300);
+            document.body.style.overflow = '';
+        }
+
+        openReleasePledgeModalBtn.addEventListener('click', openPledgeModal);
+        closeReleasePledgeModalBtn.addEventListener('click', closePledgeModal);
+
+        releasePledgeModal.addEventListener('click', (event) => {
+            if (event.target === releasePledgeModal) {
+                closePledgeModal();
+            }
+        });
+
+        if (contactFromReleaseModal) {
+            contactFromReleaseModal.addEventListener('click', closePledgeModal);
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && releasePledgeModal.classList.contains('opacity-100')) {
+                closePledgeModal();
+            }
+        });
+    }
+
+    // Gold Buyback Modal Logic
+    const openGoldBuybackModalBtn = document.getElementById('openGoldBuybackModalBtn');
+    const goldBuybackModal = document.getElementById('goldBuybackModal');
+    const goldBuybackModalContent = document.getElementById('goldBuybackModalContent');
+    const closeGoldBuybackModalBtn = document.getElementById('closeGoldBuybackModal');
+    const contactFromBuybackModal = document.getElementById('contactFromBuybackModal');
+
+    if (openGoldBuybackModalBtn && goldBuybackModal && goldBuybackModalContent && closeGoldBuybackModalBtn) {
+    
+        function openBuybackModal() {
+            goldBuybackModal.classList.remove('opacity-0', 'pointer-events-none');
+            goldBuybackModalContent.classList.remove('scale-95');
+            
+            void goldBuybackModal.offsetWidth; 
+            
+            goldBuybackModal.classList.add('opacity-100', 'pointer-events-auto');
+            goldBuybackModalContent.classList.add('scale-100');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBuybackModal() {
+            goldBuybackModal.classList.add('opacity-0');
+            goldBuybackModalContent.classList.add('scale-95');
+            goldBuybackModal.classList.remove('opacity-100', 'pointer-events-auto');
+            goldBuybackModalContent.classList.remove('scale-100');
+            
+            setTimeout(() => {
+                goldBuybackModal.classList.add('pointer-events-none');
+            }, 300);
+            document.body.style.overflow = '';
+        }
+
+        openGoldBuybackModalBtn.addEventListener('click', openBuybackModal);
+        closeGoldBuybackModalBtn.addEventListener('click', closeBuybackModal);
+
+        goldBuybackModal.addEventListener('click', (event) => {
+            if (event.target === goldBuybackModal) {
+                closeBuybackModal();
+            }
+        });
+
+        if (contactFromBuybackModal) {
+            contactFromBuybackModal.addEventListener('click', closeBuybackModal);
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && goldBuybackModal.classList.contains('opacity-100')) {
+                closeBuybackModal();
+            }
+        });
+    }
+
+    // Gold Loan Modal Logic
+    const openGoldLoanModalBtn = document.getElementById('openGoldLoanModalBtn');
+    const goldLoanModal = document.getElementById('goldLoanModal');
+    const goldLoanModalContent = document.getElementById('goldLoanModalContent');
+    const closeGoldLoanModalBtn = document.getElementById('closeGoldLoanModal');
+    const contactFromLoanModal = document.getElementById('contactFromLoanModal');
+
+    if (openGoldLoanModalBtn && goldLoanModal && goldLoanModalContent && closeGoldLoanModalBtn) {
+    
+        function openLoanModal() {
+            goldLoanModal.classList.remove('opacity-0', 'pointer-events-none');
+            goldLoanModalContent.classList.remove('scale-95');
+            
+            void goldLoanModal.offsetWidth; 
+            
+            goldLoanModal.classList.add('opacity-100', 'pointer-events-auto');
+            goldLoanModalContent.classList.add('scale-100');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLoanModal() {
+            goldLoanModal.classList.add('opacity-0');
+            goldLoanModalContent.classList.add('scale-95');
+            goldLoanModal.classList.remove('opacity-100', 'pointer-events-auto');
+            goldLoanModalContent.classList.remove('scale-100');
+            
+            setTimeout(() => {
+                goldLoanModal.classList.add('pointer-events-none');
+            }, 300);
+            document.body.style.overflow = '';
+        }
+
+        openGoldLoanModalBtn.addEventListener('click', openLoanModal);
+        closeGoldLoanModalBtn.addEventListener('click', closeLoanModal);
+
+        goldLoanModal.addEventListener('click', (event) => {
+            if (event.target === goldLoanModal) {
+                closeLoanModal();
+            }
+        });
+
+        if (contactFromLoanModal) {
+            contactFromLoanModal.addEventListener('click', closeLoanModal);
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && goldLoanModal.classList.contains('opacity-100')) {
+                closeLoanModal();
+            }
+        });
+    }
+
+    // Jewelry Valuation Modal Logic
+    const openValuationModalBtn = document.getElementById('openValuationModalBtn');
+    const valuationModal = document.getElementById('valuationModal');
+    const valuationModalContent = document.getElementById('valuationModalContent');
+    const closeValuationModalBtn = document.getElementById('closeValuationModal');
+    const contactFromValuationModal = document.getElementById('contactFromValuationModal');
+
+    if (openValuationModalBtn && valuationModal && valuationModalContent && closeValuationModalBtn) {
+    
+        function openValuationModal() {
+            valuationModal.classList.remove('opacity-0', 'pointer-events-none');
+            valuationModalContent.classList.remove('scale-95');
+            
+            void valuationModal.offsetWidth; 
+            
+            valuationModal.classList.add('opacity-100', 'pointer-events-auto');
+            valuationModalContent.classList.add('scale-100');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeValuationModal() {
+            valuationModal.classList.add('opacity-0');
+            valuationModalContent.classList.add('scale-95');
+            valuationModal.classList.remove('opacity-100', 'pointer-events-auto');
+            valuationModalContent.classList.remove('scale-100');
+            
+            setTimeout(() => {
+                valuationModal.classList.add('pointer-events-none');
+            }, 300);
+            document.body.style.overflow = '';
+        }
+
+        openValuationModalBtn.addEventListener('click', openValuationModal);
+        closeValuationModalBtn.addEventListener('click', closeValuationModal);
+
+        valuationModal.addEventListener('click', (event) => {
+            if (event.target === valuationModal) {
+                closeValuationModal();
+            }
+        });
+
+        if (contactFromValuationModal) {
+            contactFromValuationModal.addEventListener('click', closeValuationModal);
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && valuationModal.classList.contains('opacity-100')) {
+                closeValuationModal();
             }
         });
     }

@@ -105,18 +105,9 @@ header .logo img {
 }
 
 /* Contact Form Floating Labels */
-.contact-input {
-    padding: 0.75rem;
-    border: 1px solid #d1d5db; /* gray-300 */
-    border-radius: 0.5rem; /* rounded-lg */
-    width: 100%;
-    outline: none;
-    transition: box-shadow 0.2s;
-}
-
-.contact-input:focus {
-    box-shadow: 0 0 0 2px #f4a300; /* yellow-500 ring effect */
-}
+/* The .contact-input class itself is now primarily a hook for the label's JavaScript/CSS interaction. */
+/* Base styling (padding, border, rounded, w-full, focus states) is applied via Tailwind classes in the HTML. */
+/* .contact-input ruleset removed as it was empty */
 
 .contact-label {
     position: absolute;
